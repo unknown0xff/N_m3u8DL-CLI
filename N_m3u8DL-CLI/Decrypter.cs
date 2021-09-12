@@ -6,7 +6,7 @@ namespace N_m3u8DL_CLI
 {
     class Decrypter
     {
-        public static byte[] AES128Decrypt(string filePath, byte[] keyByte, byte[] ivByte, CipherMode mode = CipherMode.CBC, PaddingMode padding = PaddingMode.PKCS7)
+        public static byte[] AES128Decrypt(string filePath, byte[] keyByte, byte[] ivByte, CipherMode mode = CipherMode.ECB, PaddingMode padding = PaddingMode.PKCS7)
         {
             FileStream fs = new FileStream(filePath, FileMode.Open);
             //获取文件大小
@@ -28,7 +28,7 @@ namespace N_m3u8DL_CLI
             return resultArray;
         }
 
-        public static byte[] AES128Decrypt(byte[] encryptedBuff, byte[] keyByte, byte[] ivByte, CipherMode mode = CipherMode.CBC, PaddingMode padding = PaddingMode.PKCS7)
+        public static byte[] AES128Decrypt(byte[] encryptedBuff, byte[] keyByte, byte[] ivByte, CipherMode mode = CipherMode.ECB, PaddingMode padding = PaddingMode.PKCS7)
         {
             byte[] inBuff = encryptedBuff;
 
